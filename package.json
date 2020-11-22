@@ -1,0 +1,23 @@
+{
+  "name": "ge-dun-peilin-guo-a3-server-cs5610",
+  "version": "1.0.0",
+  "description": "URL Shortener - Ge Dun, Peilin Guo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peilin97/ge-dun-peilin-guo-a3-server-cs5610.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/peilin97/ge-dun-peilin-guo-a3-server-cs5610/issues"
+  },
+  "homepage": "https://github.com/peilin97/ge-dun-peilin-guo-a3-server-cs5610#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.15"
+  }
+}

@@ -1,2 +1,2 @@
-# ge-dun-peilin-guo-a3-cs5610
-URL Shortener - Ge Dun, Peilin Guo
+# ge-dun-peilin-guo-a3-server-cs5610
+URL Shortener-Server, Ge Dun, Peilin Guo
