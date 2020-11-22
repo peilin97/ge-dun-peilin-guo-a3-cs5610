@@ -9,6 +9,10 @@ app.use(express.urlencoded({extended: false}));
 
 app.set('port', (process.env.PORT || 5000))
 
+const mongoDBEndpoint = process.env.MONGODB_URI || 'mongodb://127.0.0.1/collection_name';
+mongoose.connect(mongoDBEndpoint, {useNewUrlParser: true});
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'Error connecting to mongodb'));
 //app.get('/', function(req, res) {
 //    res.sendFile(__dirname + '/index.html');
 //});
