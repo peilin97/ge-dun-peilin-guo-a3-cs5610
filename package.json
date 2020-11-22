@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/peilin97/ge-dun-peilin-guo-a3-server-cs5610#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.10.15"
   }
