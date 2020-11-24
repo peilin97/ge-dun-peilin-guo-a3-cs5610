@@ -3,26 +3,52 @@ const mongoose = require('mongoose');
 const urlSchema = new mongoose.Schema({
     original: String,
     shortened: String,
-    isBranded: Boolean,
+    // isBranded: Boolean,
 });
 
-const UrlModel = mongoose.model('Url', urlSchema);
+const URLModel = mongoose.model('URL', urlSchema);
 
-function addUrl(url) {
-    return UrlModel.create(url);
+function addURL(url) {
+    return URLModel.create(url);
 }
 
-function deleteUrl(shortened) {
-    UrlModel.deleteOne({shortened: shortened});
-}
-
-function updateUrl(newUrl) {
-    UrlModel.updateOne(
-        {shortened: newUrl.shortened},
-        {original: newUrl.original}
+function updateURL(newURL) {
+    return URLModel.updateOne(
+        {shortened: newURL.shortened},
+        {original: newURL.original},
+        // function(err, foundURL) {
+        //     if (err) {
+        //         return false;
+        //     } else {
+        //         return true;
+        //     }
+        // }
     );
 }
 
-function findShortenedByOriginal(original) {
-    // return UrlModel.find({original: original})
-} 
+function generateRandomShortenedURL() {
+    let res = '';
+    const chars = 'abcdefghijklmnopqrstuvwxyz0123456789-_';
+    const charsLength = chars.length;
+    while (res === '') {
+        for (let i = 0; i < 6; i++) {
+            res += chars.charAt(Math.floor(Math.random()*charsLength));
+        }
+        URLModel.findOne({shortened: res}, function(err, found) {
+            if (err) {
+                console.log(err);
+            } else if (found) {
+                res = '';
+            }
+        })
+    }
+
+    return res;
+}
+
+module.exports = {
+    URLModel,
+    updateURL,
+    addURL,
+    generateRandomShortenedURL,
+};
