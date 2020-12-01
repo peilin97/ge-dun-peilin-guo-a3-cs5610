@@ -12,7 +12,7 @@ middlewareObj.checkURLValidity = function(req, res, next) {
     })
     .catch(function (err) {
         console.log(err);
-        res.send('Invalid URL');
+        res.status(400).send('Invalid URL');
     });
 };
 
