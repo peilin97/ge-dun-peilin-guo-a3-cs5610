@@ -3,7 +3,6 @@ const router = express.Router();
 const middleware = require('../middleware');
 const {
     URLModel,
-    updateURL,
     addURL,
     generateRandomShortenedURL,
 } = require('../models/url');
@@ -86,8 +85,10 @@ router.post('/', middleware.checkURLValidity, function(req, res) {
 router.put('/:shortenedURL', middleware.checkURLValidity, function(req, res) {
     const shortenedURL = req.params.shortenedURL;
     const newOriginal = req.body.original;
-    updateURL({shortened: shortenedURL, original: newOriginal});
-    res.send({original: newOriginal});
+    URLModel.updateOne({shortened: shortenedURL, original: newOriginal})
+    .then(()=> {
+        res.send({original: newOriginal})
+    });
 });
 
 // delete a url

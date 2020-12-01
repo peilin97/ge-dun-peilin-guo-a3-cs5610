@@ -12,20 +12,6 @@ function addURL(url) {
     return URLModel.create(url);
 }
 
-function updateURL(newURL) {
-    return URLModel.updateOne(
-        {shortened: newURL.shortened},
-        {original: newURL.original},
-        // function(err, foundURL) {
-        //     if (err) {
-        //         return false;
-        //     } else {
-        //         return true;
-        //     }
-        // }
-    );
-}
-
 function generateRandomShortenedURL() {
     let res = '';
     const chars = 'abcdefghijklmnopqrstuvwxyz0123456789-_';
@@ -48,7 +34,6 @@ function generateRandomShortenedURL() {
 
 module.exports = {
     URLModel,
-    updateURL,
     addURL,
     generateRandomShortenedURL,
 };
