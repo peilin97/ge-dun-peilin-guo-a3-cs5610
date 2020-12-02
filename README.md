@@ -6,7 +6,7 @@ Author: Ge Dun, Peilin Guo
 ## write-up
 * Describe your data model and schema. How did Mongoose make this easy or hard to express?
     
-    We have a URL schema, where we defined two properties: original: String and shortened: String. The original property represenst the original url link. The shortened property represents the shortened path ID. 
+    We have a URL schema, where we defined two properties: original: String and shortened: String. The original property represents the original URL link. The shortened property represents the shortened path ID. 
 
     With the model's methods (e.g. findOne(), updateOne()), it is easier for us to process data.
 * Have you worked with databases before? How was this different or similar? If you’ve not worked with databases before, describe your challenges and ease in representing this data.
