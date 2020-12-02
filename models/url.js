@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const urlSchema = new mongoose.Schema({
     original: String,
     shortened: String,
-    // isBranded: Boolean,
 });
 
 const URLModel = mongoose.model('URL', urlSchema);

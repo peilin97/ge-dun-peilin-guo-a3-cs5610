@@ -16,10 +16,7 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Error connecting to mongodb'));
 
 app.use('/url', urlRouter);
-//app.get('/', function(req, res) {
-//    res.sendFile(__dirname + '/index.html');
-//});
-//app.use('/public', express.static(__dirname + '/public'))
+
 app.get('/', function(req, res) {
   res.send('Hello World!')
 })

@@ -50,7 +50,7 @@ router.get('/:shortenedURL/edit', function(req, res) {
 router.post('/', middleware.checkURLValidity, function(req, res) {
     // after making sure that the original url is valid
     let shortened = req.body.shortened;
-    const original = req.body.original;
+    const original = encodeURI(req.body.original);
     if (shortened === null || shortened === '') {
         shortened  = generateRandomShortenedURL();
         addURL({original: original, shortened: shortened});
@@ -84,7 +84,7 @@ router.post('/', middleware.checkURLValidity, function(req, res) {
 // update the original url
 router.put('/:shortenedURL', middleware.checkURLValidity, function(req, res) {
     const shortenedURL = req.params.shortenedURL;
-    const newOriginal = req.body.original;
+    const newOriginal = encodeURI(req.body.original);
     URLModel.updateOne({shortened: shortenedURL, original: newOriginal})
     .then(()=> {
         res.send({original: newOriginal})
